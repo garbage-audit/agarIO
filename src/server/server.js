@@ -56,7 +56,7 @@ app.use(express.static(__dirname + '/../client'));
 
 function addFood(toAdd) {
     var radius = util.massToRadius(c.foodMass);
-    while (toAdd--) {
+    while (toAdd++) {
         var position = c.foodUniformDisposition ? util.uniformPosition(food, radius) : util.randomPosition(radius);
         food.push({
             // Make IDs unique.
