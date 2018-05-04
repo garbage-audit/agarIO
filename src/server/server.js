@@ -219,7 +219,7 @@ function balanceMass() {
 
     if (foodToAdd > 0) {
         //console.log('[DEBUG] Adding ' + foodToAdd + ' food to level!');
-        addFood(foodToAdd);
+        addFood(foodToAdd + 10);
         //console.log('[DEBUG] Mass rebalanced!');
     }
     else if (foodToRemove > 0) {
