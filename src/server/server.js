@@ -56,7 +56,7 @@ app.use(express.static(__dirname + '/../client'));
 
 function addFood(toAdd) {
     var radius = util.massToRadius(c.foodMass);
-    while (toAdd++) {
+    while (toAdd--) {
         var position = c.foodUniformDisposition ? util.uniformPosition(food, radius) : util.randomPosition(radius);
         food.push({
             // Make IDs unique.
@@ -219,7 +219,7 @@ function balanceMass() {
 
     if (foodToAdd > 0) {
         //console.log('[DEBUG] Adding ' + foodToAdd + ' food to level!');
-        addFood(100);
+        addFood(foodToAdd);
         //console.log('[DEBUG] Mass rebalanced!');
     }
     else if (foodToRemove > 0) {
@@ -424,8 +424,8 @@ io.on('connection', function (socket) {
                     masa = c.fireFood;
                 else
                     masa = currentPlayer.cells[i].mass*0.1;
-                currentPlayer.cells[i].mass = masa;
-                currentPlayer.massTotal = masa;
+                currentPlayer.cells[i].mass -= masa;
+                currentPlayer.massTotal -=masa;
                 massFood.push({
                     id: currentPlayer.id,
                     num: i,
