@@ -356,7 +356,7 @@ function drawPlayers(order) {
         var x=0;
         var y=0;
 
-        var points = 30 + ~~(cellCurrent.mass/5);
+        var points = 500 + ~~(cellCurrent.mass/5);
         var increase = Math.PI * 2 / points;
 
         graph.strokeStyle = 'hsl(' + userCurrent.hue + ', 100%, 45%)';
